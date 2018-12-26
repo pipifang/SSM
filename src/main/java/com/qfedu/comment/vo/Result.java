@@ -3,13 +3,17 @@ package com.qfedu.comment.vo;
 import java.io.Serializable;
 
 /**
- *@Author feri
- *@Date Created in 2018/11/28 09:20
+ * @author gfc
+ * 2018年11月28日 下午 5:29
  */
-public class ResultBean implements Serializable {
+public class Result implements Serializable {
     private int code;
+
     private String msg;
+
     private Object data;
+
+    private Object other;
 
     public int getCode() {
         return code;
@@ -33,5 +37,13 @@ public class ResultBean implements Serializable {
 
     public void setData(Object data) {
         this.data = data;
+    }
+
+    public Object getOther() {
+        return other;
+    }
+
+    public void setOther(Object other) {
+        this.other = other;
     }
 }

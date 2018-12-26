@@ -1,11 +1,11 @@
-package com.qfedu.comment.util;
+package com.qfedu.comment.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
- *@Author feri
+ *@Author gfc
  *@Date Created in 2018/7/24 23:02
  */
 public class DateUtil {

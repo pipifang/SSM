@@ -1,4 +1,4 @@
-package com.qfedu.comment.util;
+package com.qfedu.comment.utils;
 
 import java.util.Base64;
 
@@ -7,11 +7,20 @@ import java.util.Base64;
  * 编码
  * 解码*/
 public class Base64Utils {
-	//编码
+	/**
+	 * 编码
+	 * @param msg 需要编码的字符串
+	 * @return
+	 */
 	public static String encode(String msg){
 		return Base64.getEncoder().encodeToString(msg.getBytes());
 	}
-	//解码
+
+	/**
+	 * 解码
+	 * @param msg 需要解码的字符串
+	 * @return
+	 */
 	public static String decode(String msg){
 		return new String(Base64.getDecoder().decode(msg));
 	}

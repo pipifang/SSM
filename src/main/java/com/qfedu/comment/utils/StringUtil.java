@@ -1,6 +1,9 @@
-package com.qfedu.comment.util;
+package com.qfedu.comment.utils;
 
-
+/**
+ *@Author gfc
+ *@Date Created in 2018/11/29 17:23
+ */
 public class StringUtil {
     public static boolean checkEmpty(String... values){
         boolean r=false;

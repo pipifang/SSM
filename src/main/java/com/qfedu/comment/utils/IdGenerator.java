@@ -1,4 +1,6 @@
-package com.qfedu.comment.util;
+package com.qfedu.comment.utils;
+
+import java.io.Serializable;
 
 /**
  * twitter的一个id生成算法
@@ -17,7 +19,7 @@ Twitter-Snowflake算法产生的背景相当简单，为了满足Twitter每秒�
  * 加起来刚好64位，为一个Long型。<br>
  * SnowFlake的优点是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞(由数据中心ID和机器ID作区分)，并且效率较高，经测试，
  * SnowFlake每秒能够产生26万ID左右。*/
-public class IdGenerator {
+public class IdGenerator implements Serializable {
 
 	/** 开始时间截 (2015-01-01) */
     private final long twepoch = 1420041600000L;
@@ -86,8 +88,8 @@ public class IdGenerator {
     }
 
     public IdGenerator() {
-    	 this.workerId = 0l;
-         this.datacenterId = 0l;
+    	 this.workerId = 0L;
+         this.datacenterId = 0L;
     };
 
     /**
@@ -124,9 +126,9 @@ public class IdGenerator {
         lastTimestamp = timestamp;
 
         // 移位并通过或运算拼到一起组成64位的ID
-        return ((timestamp - twepoch) << timestampLeftShift) //
-                | (datacenterId << datacenterIdShift) //
-                | (workerId << workerIdShift) //
+        return ((timestamp - twepoch) << timestampLeftShift)
+                | (datacenterId << datacenterIdShift)
+                | (workerId << workerIdShift)
                 | sequence;
     }
 

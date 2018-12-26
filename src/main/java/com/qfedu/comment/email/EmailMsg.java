@@ -1,7 +1,12 @@
 package com.qfedu.comment.email;
 
+import java.io.Serializable;
 
-public class EmailMsg {
+/**
+ *@Author gfc
+ *@Date Created in 2018/9/6 11:19
+ */
+public class EmailMsg implements Serializable {
     private String Title;
     private String Content;
     private String Email;

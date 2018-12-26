@@ -1,4 +1,4 @@
-package com.qfedu.comment.util;
+package com.qfedu.comment.utils;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
@@ -10,16 +10,26 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * @author xing
+ */
 public class HttpUtils {
-	//基于HttpURLConnection
+
+	/**
+	 * 基于HttpURLConnection
+	 * @param ip
+	 * @return
+	 */
 	public static String getLocation(String ip) {
 		BufferedReader reader=null;
 		HttpURLConnection huc=null;
@@ -61,15 +71,21 @@ public class HttpUtils {
 		return null;
 	}
 
-	//获取网络信息 字符串
+	/**
+	 * 获取网络信息 字符串
+	 * @param method
+	 * @param url
+	 * @param params
+	 * @return
+	 */
 	public static String getString(String method,String url, Map<String,String> params){
 		String res="";
 		try {
 			switch (method){
-				case "GET"://get请求
+				case "GET":
 					res=get(url,params);
 					break;
-				case "POST"://post请求
+				case "POST":
 					res=post(url, params);
 					break;
 			}
@@ -78,13 +94,22 @@ public class HttpUtils {
 		}
 		return res;
 	}
-	//获取网络信息 字符串
+
+	/**
+	 * 获取网络信息 字符串
+	 * @param url
+	 * @return
+	 * @throws IOException
+	 */
 	public static byte[] getResource(String url) throws IOException {
-		//1、创建请求方式
+		/**
+		 * 1、创建请求方式
+		 */
 		HttpGet httpGet=new HttpGet(url);
-		//2、设置请求信息
-		//httpGet.setHeader();
-		//3、创建客户端
+
+		/**
+		 * 3、创建客户端
+		 */
 		HttpClient client= HttpClientBuilder.create().build();
 		//4、发起请求
 		HttpEntity httpEntity=client.execute(httpGet).getEntity();
@@ -107,10 +132,11 @@ public class HttpUtils {
 		}
 		//2、创建请求方式
 		HttpGet httpGet=new HttpGet(url);
-		//3、设置请求信息
-		//httpGet.setHeader();
-		//4、创建客户端
-		HttpClient client=HttpClientBuilder.create().build();
+
+		/**
+		 * 4、创建客户端
+		 */
+		HttpClient client= HttpClientBuilder.create().build();
 		//5、发起请求
 		HttpEntity httpEntity=client.execute(httpGet).getEntity();
 		//6、解析响应结果
@@ -125,6 +151,7 @@ public class HttpUtils {
 //		bufferedReader.close();
 //		inputStream.close();
 //		return res.toString();
+		
 		return EntityUtils.toString(httpEntity,"UTF-8");
 	}
 	private static String post(String url, Map<String,String> params) throws IOException {
@@ -143,9 +170,13 @@ public class HttpUtils {
 		}
 		//3、设置消息头
 		//4、创建客户端
-		HttpClient client=HttpClientBuilder.create().build();
+		HttpClient client= HttpClientBuilder.create().build();
 		//5、执行请求
 		HttpEntity httpEntity=client.execute(httpPost).getEntity();
 		return EntityUtils.toString(httpEntity,"UTF-8");
 	}
+
+
+
+
 }

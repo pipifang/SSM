@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
+    <mvc:annotation-driven></mvc:annotation-driven>
+    <context:component-scan base-package="com.qfedu.controller"></context:component-scan>
+
+    <bean id="ossUtil" class="com.qfedu.comment.utils.OSSUtil">
+        <constructor-arg name="endpoint" value="oss-cn-beijing.aliyuncs.com"></constructor-arg>
+        <constructor-arg name="accessKeyId" value="LTAIz5Q8ogs8vCgJ"></constructor-arg>
+        <constructor-arg name="accessKeySecret" value="AuuV5rifGr8tI7rQ8u6Q1iCrsuWcO7"></constructor-arg>
+        <constructor-arg name="bucketName" value="sueyunimages"></constructor-arg>
+    </bean>
+
+    <bean id="commonsMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="maxUploadSize" value="2000000000"></property>
+    </bean>
+</beans>

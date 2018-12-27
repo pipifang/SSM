@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:component-scan base-package="com.qfedu.service"></context:component-scan>
+
+    <!-- 表示指定aop实现底层采用cglib的形式 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+
+    <!-- 以下两个配置，表示我们通过将事务交给spring进行处理，并且是使用注解的方法，也就是在类中使用@Transitional注解 -->
+    <!-- enable the configuration of transactional behavior based on annotations
+        spring提供的<tx:annotation-driven/>用于开启对注解事务管理的支持，从而能识别Bean类上的@Transactional注解元数据 -->
+    <tx:annotation-driven transaction-manager="txManager"
+                          proxy-target-class="true"/>
+    <!-- a PlatformTransactionManager is still required -->
+    <bean id="txManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- (this dependency is defined somewhere else) -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+</beans>

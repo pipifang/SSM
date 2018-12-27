@@ -52,4 +52,10 @@ public class Logs {
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
     }
+
+    public Logs(Integer uid, String ip, String content) {
+        this.uid = uid;
+        this.ip = ip;
+        this.content = content;
+    }
 }

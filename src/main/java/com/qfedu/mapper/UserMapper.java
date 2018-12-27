@@ -14,4 +14,12 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    User selectByName(User user);
+
+    int updatePassword(User user);
+
+    int updateHeadImage(User user);
+
+    User selectByEmail(String email);
 }

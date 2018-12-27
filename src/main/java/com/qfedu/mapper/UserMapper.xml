@@ -171,4 +171,23 @@
       rank = #{rank,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="com.qfedu.domain.User">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM t_user WHERE `nickname`=#{nickname}
+  </select>
+
+  <update id="updatePassword" parameterType="com.qfedu.domain.User">
+        update t_user set password=#{password} where email=#{email}
+    </update>
+
+  <update id="updateHeadImage" parameterType="com.qfedu.domain.User">
+        update t_user set image=#{image} where id=#{id}
+    </update>
+
+  <select id="selectByEmail" resultMap="BaseResultMap" parameterType="string">
+    select <include refid="Base_Column_List"/> from t_user where email=#{email}
+  </select>
+
 </mapper>

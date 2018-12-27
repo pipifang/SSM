@@ -2,17 +2,13 @@ package com.qfedu.comment.utils;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author gfc
- * 2018年11月29日 下午 10:04
- */
+
 public class JedisUtil implements Serializable {
     private String host;
     private int port;

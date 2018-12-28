@@ -7,7 +7,7 @@
 		<setting name="callSettersOnNulls" value="true"/>
 		<setting name="logImpl" value="STDOUT_LOGGING" />
 	</settings>
-	
+
 	<plugins>
 		<!-- PageHelper4.1.1 -->
 		<plugin interceptor="com.github.pagehelper.PageInterceptor">
@@ -25,7 +25,5 @@
 
 		</plugin>
 	</plugins>
-
-
 
 </configuration>

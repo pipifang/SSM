@@ -19,9 +19,11 @@
         <property name="configLocation"
                   value="classpath:mybatis_config.xml"></property>
     </bean>
+
     <!--4、配置MyBatis的扫描-->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.qfedu.mapper"></property>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
+
 </beans>

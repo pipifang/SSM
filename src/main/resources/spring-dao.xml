@@ -11,7 +11,7 @@
         <property name="url" value="${db.url}"></property>
         <property name="username" value="${db.user}"></property>
         <property name="password" value="${db.pass}"></property>
-        <property name="maxWait" value="6000"></property>
+        <property name="maxWait" value="60000"></property>
     </bean>
     <!--3、配置MyBatis的工厂对象-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

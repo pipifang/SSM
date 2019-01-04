@@ -99,7 +99,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-            <scope>true</scope>
+            <!--<scope>true</scope>-->
         </dependency>
 
         <dependency>
@@ -142,11 +142,13 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.53</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
         <dependency>
             <groupId>com.aliyun.oss</groupId>
             <artifactId>aliyun-sdk-oss</artifactId>
-            <version>3.3.0</version>
+            <version>3.4.0</version>
         </dependency>
+
 
     </dependencies>
 
